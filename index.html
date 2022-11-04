@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                background-color: #272727;
+            }
+            #content {
+                width:600px;
+                left:20%;
+                margin:50px;
+            }
+            .butClass1 {
+                width:100px;
+                background-color:rgb(83, 158, 161);
+                
+            } 
+            .butStyle {
+                width:100px;
+                margin: 10px;
+            }
+            .butClass2 {
+                width:200px;
+                background-color:chartreuse;
+                position:relative;
+                text-align: center;
+            }
+            #textInput {
+                width:350px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id='content'>
+            
+            <input type='text' id='textInput' value='Type here' />
+            <input type='button' id='store' value='Store' />
+            <div id='buttons'>
+            <input type='button' class='butClass1 butStyle' id='drinks' value="Drinks" />
+            <input type='button' class='butClass1 butStyle' id='meat' value="Meat" />
+            <input type='button' class='butClass1 butStyle' id='vegetables' value="Vegetables" />
+            <input type='button' class='butClass1 butStyle' id='fruits' value="Fruits" /></div>
+            <div id='listAll'></div>
+            
+        </div>
+        
+        <script>
+            
+            /*var inputs = document.getElementsByTagName('input');
+            console.log(inputs);
+            hideClass = function(ev) {
+                if (inputs[ev].classList.contains('butClass1')){
+                    inputs[2].classList.remove('butClass1');
+                    inputs[3].classList.remove('butClass1');
+                    inputs[4].classList.remove('butClass1');
+                    inputs[5].classList.remove('butClass1');
+                console.log('test');
+                }
+            }
+            */
+            
+            
+            var drinks = document.getElementById('drinks');
+            var meat = document.getElementById('meat');
+            var veg = document.getElementById('vegetables');
+            var fruits = document.getElementById('fruits');
+            var inputs = document.getElementsByTagName('input') 
+            var store = document.getElementById('store');
+            var txt = document.getElementById('textInput');
+            var list = document.getElementById('listAll');
+            
+            inputs[2].onclick = function(){
+                
+                    inputs[2].classList.add('butClass1');
+                    inputs[3].classList.remove('butClass1');
+                    inputs[4].classList.remove('butClass1');
+                    inputs[5].classList.remove('butClass1');
+                    curClick = inputs[2].value;
+                    dArr.push(curClick);
+                    txt.value = '';
+                    txt.value = dArr[0];
+                    
+                
+            };
+            inputs[3].onclick = function(){
+            
+                    inputs[3].classList.add('butClass1');
+                    inputs[2].classList.remove('butClass1');
+                    inputs[4].classList.remove('butClass1');
+                    inputs[5].classList.remove('butClass1');
+                    curClick = inputs[3].value;
+                    console.log(curClick);
+                    mArr.push(curClick);
+                    txt.value = '';
+                    txt.value = mArr[0];
+                
+            };
+            inputs[4].onclick = function(){
+                
+                    inputs[4].classList.add('butClass1');
+                    inputs[2].classList.remove('butClass1');
+                    inputs[3].classList.remove('butClass1');
+                    inputs[5].classList.remove('butClass1');
+                    curClick = inputs[4].value;
+                    console.log(curClick);
+                    vArr.push(curClick);
+                    txt.value = '';
+                    txt.value = vArr[0];
+               
+            };
+            inputs[5].onclick = function(){
+                
+                    inputs[5].classList.add('butClass1');
+                    inputs[2].classList.remove('butClass1');
+                    inputs[3].classList.remove('butClass1');
+                    inputs[4].classList.remove('butClass1');
+                    curClick = inputs[5].value;
+                    console.log(curClick);
+                    fArr.push(curClick);
+                    txt.value = '';
+                    txt.value = fArr[0];
+                
+            };
+            
+            var dArr = [];
+            var mArr = [];
+            var vArr = [];
+            var fArr = [];
+            var curClick = null;
+
+            store.addEventListener('click', function() {
+                var ndiv = document.createElement('div');
+                ndiv.innerHTML = txt.value;
+                ndiv.className = 'butClass2';
+                list.appendChild(ndiv);
+                console.log(store);
+                if (txt.value == ''){
+                    list.innerHTML = 'Type';
+                }
+                console.log(dArr, mArr, vArr, fArr, ndiv);
+            });
+            
+            // when store clicked, show drinks menu in listAll div only if drinks is 'clicked on'
+        </script>
+    </body>
+</html>
